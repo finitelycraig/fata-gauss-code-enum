@@ -232,6 +232,23 @@
                     \item Pick a direction and walk around the knot, writing out a list of the numbers you come to (with a negative sign indicating that a crossing was visited on an under strand). Stop when each number appears twice once with each sign.
             \end{enumerate}
             \end{itemize}
+            \begin{center}
+	            \only<8->{${-1}$}
+	            \only<8-9>{{\color{white}, $4$}}
+	            \only<9->{, $4$}
+	            \only<8-10>{{\color{white}, ${-3}$}}
+	            \only<10->{, ${-3}$}
+	            \only<8-11>{{\color{white}, $1$}}
+	            \only<11->{, $1$}
+	            \only<8-12>{{\color{white}, ${-2}$}}
+	            \only<12->{, ${-2}$}
+	            \only<8-13>{{\color{white}, $3$}}
+	            \only<13->{, $3$}
+	            \only<8-14>{{\color{white}, ${-4}$}}
+	            \only<14->{, ${-4}$}
+	            \only<8-15>{{\color{white}, $2$}}
+	            \only<15->{, $2$}
+	        \end{center}
         \end{column}
         \begin{column}{0.25\textwidth}
             \begin{tikzpicture}[scale=0.7, every path/.style={uofgburgundy,ultra thick}, every node/.style={transform shape, knot crossing, inner sep=1.5pt}]
@@ -255,14 +272,6 @@
                 \draw (tl) -- (tr.center);
                 \only<6-> \fill (p) circle [radius=5pt];
             \end{tikzpicture}
-            \only<8->{${-1}$}
-            \only<9->{, $4$}
-            \only<10->{, ${-3}$}
-            \only<11->{, $1$}
-            \only<12->{, ${-2}$}
-            \only<13->{, $3$}
-            \only<14->{, ${-4}$}
-            \only<15->{, $2$}
         \end{column}
     \end{columns}
 \end{frame}
