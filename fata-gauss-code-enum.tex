@@ -243,7 +243,7 @@
                 \only<4-> \node[above=0.2 of m, color=uofgpillarbox]{3};
                 \node (b) at (0,-2) {};
                 \only<5-> \node[below=0.2 of b, color=uofgpillarbox]{4};
-                
+                \only<6-> \node (p) at (0,0) {};
                 \draw (b) .. controls (b.4 north west) and (m.4 south west) .. (m.center);
                 \draw (b.center) .. controls (b.4 north east) and (m.4 south east) .. (m);
                 \draw (m) .. controls (m.8 north west) and (tl.3 south west) .. (tl.center);
@@ -252,6 +252,7 @@
                 \draw (b) .. controls (b.16 south east) and (tr.16 north east) .. (tr.center);
                 \draw (b.center) .. controls (b.16 south west) and (tl.16 north west) .. (tl);
                 \draw (tl) -- (tr.center);
+                \only<6-> \fill (p) circle [radius=2pt];
             \end{tikzpicture}
         \end{column}
     \end{columns}
