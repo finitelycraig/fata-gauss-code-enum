@@ -301,18 +301,18 @@
             \begin{tikzpicture}[scale=0.7, every path/.style={uofgburgundy,ultra thick}, every node/.style={transform shape, knot crossing, inner sep=1.5pt}]
                 \node[rotate=45] (tl) at (-1,1) {};
                 \only<1-2> \node[above left=0.2 of tl, color=uofgpillarbox]{1};
-                \only<3-> \node[above left=0.2 of tl, color=uofgpillarbox]{1};
+                \only<3-> \node[above left=0.2 of tl, color=uofgpillarbox]{2};
                 \node[rotate=-45] (tr) at (1,1) {};
                 \only<1-2> \node[above right=0.2 of tr, color=uofgpillarbox]{2};
-                \only<3-> \node[above right=0.2 of tr, color=uofgpillarbox]{2};
+                \only<3-> \node[above right=0.2 of tr, color=uofgpillarbox]{1};
         		\node (m) at (0,-1) {};
                 \only<1-> \node[above=0.2 of m, color=uofgpillarbox]{3};
                 \node (b) at (0,-2) {};
                 \only<1-> \node[below=0.2 of b, color=uofgpillarbox]{4};
                 \only<1-3> \node (p) at (0,1) {};
-                \only<4-> \node (p) at (0,2) {};
+                \only<4-> \node (p) at (0,2.2) {};
                 \only<1> \node[above=0.1 of p, color=uofgpillarbox]{left};
-                \only<2> \node[above=0.1 of p, color=uofgpillarbox]{right};
+                \only<2-> \node[above=0.1 of p, color=uofgpillarbox]{right};
                 \draw (b) .. controls (b.4 north west) and (m.4 south west) .. (m.center);
                 \draw (b.center) .. controls (b.4 north east) and (m.4 south east) .. (m);
                 \draw (m) .. controls (m.8 north west) and (tl.3 south west) .. (tl.center);
