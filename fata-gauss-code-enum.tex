@@ -1,4 +1,4 @@
-% vim: set spell spelllang=en tw=100 et sw=4 sts=4 foldmethod=marker foldmarker={{{,}}} :
+ vim: set spell spelllang=en tw=100 et sw=4 sts=4 foldmethod=marker foldmarker={{{,}}} :
 
 \documentclass{beamer}
 
@@ -11,6 +11,7 @@
 \usepackage{amsfonts}                  % \mathcal
 \usepackage{amssymb}                   % \nexists
 \usepackage{gnuplot-lua-tikz}          % graphs
+
 \usepackage[vlined]{algorithm2e} % algorithms
 \usepackage{centernot}
 \usepackage{mathtools}
@@ -129,14 +130,14 @@
 % }}}
 
 \title{Enumeration of (unique reduced alternating) knot diagrams}
-\author[Craig Reilly]{\textbf{Craig Reilly}}
+\author[Ciaran McCreesh, Alice Miller, Patrick Prosser, Craig Reilly, James Trimble]{Ciaran McCreesh, Alice Miller, Patrick Prosser, \textbf{Craig Reilly}, James Trimble}
 
 \begin{document}
 
 {
     \usebackgroundtemplate{
         \tikz[overlay, remember picture]
-        \node[at=(current page.south), anchor=south, inner sep=0pt]{\includegraphics*[keepaspectratio=true, width=\paperwidth]{3_1.png}};
+        \node[at=(current page.south), anchor=south, inner sep=0pt]{\includegraphics*[keepaspectratio=true, width=\paperwidth]{background.jpg}};
     }
     \begin{frame}[plain,noframenumbering]
         \titlepage
@@ -144,84 +145,117 @@
 }
 
 \begin{frame}{What is a knot?}
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item A \emph{knot} is an embedding of the circle in $\mathbb{R}^3$.
+        \item An intuitive way to think about this is to consider a knot as a knotted piece of string with the ends glued together.
     \end{itemize}
 \end{frame}
 
-\begin{frame}
- 
-\begin{tikzpicture}
-\begin{knot}[
- consider self intersections,
- flip crossing=2,
- clip width=5,
- draft mode=crossings,
- background color=uofgheather,
-]
-\strand
-(90:2) to[out=180,in=-120,looseness=3]
-(-30:2) to[out=60,in=120,looseness=2]
-(210:2) to[out=-60,in=0,looseness=1] (90:2);
-\end{knot}
-\end{tikzpicture}
-\end{frame}
+\begin{frame}{Drawing knots on paper}
+    \only<1> { 
+        \begin{itemize}
+            \item A function $f: \mathbb{R}^3 \rightarrow \mathbb{R}^2$ where $f(x, y, z) = f(x, y)$, is called a \emph{projection map}, and the image of a knot K under $f$ is called the \emph{projection} of K. 
+            \item Such a projection is often refered to as the \emph{shadow} of K.
+        \end{itemize}
+    }
+    \only<2> {
+        \begin{itemize}
+            \item Information regarding the orientation of arcs at crossings is given by leaving gaps in a knot's shadow..
+        \end{itemize}
+    }
 
-\begin{frame}
-    \begin{tikzpicture}
-        \draw[red, ultra thick] (0,0) .. controls +(1,0) and
-            +(-1,0) .. (2,1) .. controls +(1,0) and +(-1,0) ..
-            (4,0);
-        \draw [blue , ultra thick] (0,1) .. controls +(1,0) and
-            +(-1,0) .. (2,0) .. controls +(1,0) and +(-1,0) ..
-            (4,1);
+    \begin{center}
+    \only<3>{
+    \begin{tikzpicture}[every path/.style={uofgburgundy,ultra thick}, every node/.style={transform shape, knot crossing, inner sep=2.5pt}]
+        \node[rotate=45] (tl) at (-1,1) {};
+        \node[rotate=-45] (tr) at (1,1) {};
+        \node (m) at (0,-1) {};
+        \node (b) at (0,-2) {};
+        \draw (b.center) .. controls (b.4 north west) and (m.4 south west) .. (m.center);
+        \draw (b.center) .. controls (b.4 north east) and (m.4 south east) .. (m.center);
+        \draw (m.center) .. controls (m.8 north west) and (tl.3 south west) .. (tl.center);
+        \draw (m.center) .. controls (m.8 north east) and (tr.3 south east) .. (tr.center);
+        \draw (tl.center) .. controls (tl.16 north east) and (tr.16 north west) .. (tr.center);
+        \draw (b.center) .. controls (b.16 south east) and (tr.16 north east) .. (tr.center);
+        \draw (b.center) .. controls (b.16 south west) and (tl.16 north west) .. (tl.center);
+        \draw (tl.center) -- (tr.center);
     \end{tikzpicture}
+    }
+    \only<4>{
+    \begin{tikzpicture}[every path/.style={uofgburgundy,ultra thick}, every node/.style={transform shape, knot crossing, inner sep=2.5pt}]
+        \node[rotate=45] (tl) at (-1,1) {};
+        \node[rotate=-45] (tr) at (1,1) {};
+        \node (m) at (0,-1) {};
+        \node (b) at (0,-2) {};
+        \draw (b) .. controls (b.4 north west) and (m.4 south west) .. (m.center);
+        \draw (b.center) .. controls (b.4 north east) and (m.4 south east) .. (m);
+        \draw (m) .. controls (m.8 north west) and (tl.3 south west) .. (tl.center);
+        \draw (m.center) .. controls (m.8 north east) and (tr.3 south east) .. (tr);
+        \draw (tl.center) .. controls (tl.16 north east) and (tr.16 north west) .. (tr);
+        \draw (b) .. controls (b.16 south east) and (tr.16 north east) .. (tr.center);
+        \draw (b.center) .. controls (b.16 south west) and (tl.16 north west) .. (tl);
+        \draw (tl) -- (tr.center);
+    \end{tikzpicture}
+    }
+\end{center}
 \end{frame}
 
-\begin{frame}
-\begin{tikzpicture}[domain=-2:2, scale=0.3]
-\begin{knot}[
- clip width=4,
- end tolerance=1pt,
-]
-\strand (0,2) to [out=down, in=down, looseness=1.8] (1.5,0);
-\strand (1.5,0) to [out=up, in=up, looseness=1.8] (0,-2);
-\end{knot}
-\draw[dashed] (0,0) circle (2cm);
-\end{tikzpicture}
+\begin{frame}{Representations of knots}
+    \only<1>{
+    \begin{itemize}
+        \item Knot diagrams are really just 4-valent planar graphs.
+            \begin{itemize}
+                \item The vertices in the graph correspond to the crossings in the knot diagram.
+                \item The arcs between vertices correspond to arcs between crossings in the knot diagram.
+                \item The arcs are decorated with their orientation at their source and target crossings.
+            \end{itemize}
+        \item Other data structures familiar to computer scientists can be used, linked lists of crossings were popular in the 1950's.
+    \end{itemize}
+    }
+    \only<2>
+    {
+    \begin{itemize}
+        \item The representations used by topologists are typically also used for representing knots in a computer.
+        \item Examples are Dowker-Thistlethwait codes (DT codes), \textbf{Gauss codes}, braid representatives, Conway notation, and many more.
+    \end{itemize}
+    }
 \end{frame}
 
-\begin{frame}
-\begin{tikzpicture}[domain=-2:2, scale=.3]
-\begin{knot}[
-  clip width=4,
-  end tolerance=1pt,
-]
-\strand (0,2) to [out=down, in=down, looseness=1.8] (1.5,0);
-\strand (1.5,0) to [out=up, in=up, looseness=1.8] (0,-2);
-\end{knot}
-\draw[dashed] (0,0) circle (2cm);
-\end{tikzpicture}
+\begin{frame}{Representing knots with Gauss codes}
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            \begin{itemize}
+            \item The strategy for representing a given knot (with $n$ crossings) by a Gauss code is as follows.
+            \begin{enumerate}
+                    \item Label the crossings with the numbers $1$ to $n$.
+                    \item Pick a point on the knot.
+                    \item Pick a direction and walk around the knot, writing out a list of the numbers you come to (with a negative sign indicating that a crossing was visited on an under strand).
+            \end{enumerate}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.25\textwidth}
+            \begin{tikzpicture}[scale=0.7, every path/.style={uofgburgundy,ultra thick}, every node/.style={transform shape, knot crossing, inner sep=1.5pt}]
+                \node[rotate=45] (tl) at (-1,1) {};
+                \only<2-> \node[above left=0.2 of tl, color=uofgpillarbox]{1};
+                \node[rotate=-45] (tr) at (1,1) {};
+                \only<3-> \node[above right=0.2 of tr, color=uofgpillarbox]{2};
+                \node (m) at (0,-1) {};
+                \only<4-> \node[above=0.2 of m, color=uofgpillarbox]{3};
+                \node (b) at (0,-2) {};
+                \only<5-> \node[below=0.2 of b, color=uofgpillarbox]{4};
+                
+                \draw (b) .. controls (b.4 north west) and (m.4 south west) .. (m.center);
+                \draw (b.center) .. controls (b.4 north east) and (m.4 south east) .. (m);
+                \draw (m) .. controls (m.8 north west) and (tl.3 south west) .. (tl.center);
+                \draw (m.center) .. controls (m.8 north east) and (tr.3 south east) .. (tr);
+                \draw (tl.center) .. controls (tl.16 north east) and (tr.16 north west) .. (tr);
+                \draw (b) .. controls (b.16 south east) and (tr.16 north east) .. (tr.center);
+                \draw (b.center) .. controls (b.16 south west) and (tl.16 north west) .. (tl);
+                \draw (tl) -- (tr.center);
+            \end{tikzpicture}
+        \end{column}
+    \end{columns}
 \end{frame}
-
-\begin{frame}
-
-\begin{tikzpicture}
-\foreach \brk in {0,1,2} {
-\begin{scope}[rotate=\brk * 120]
-\node[knot crossing, transform shape, inner sep=1.5pt] (k\brk) at (0,-1) {};
-\end{scope}
-}
-\foreach \brk in {0,1,2} {
-\pgfmathparse{int(Mod(\brk - 1,3))}
-\edef\brl{\pgfmathresult}
-\draw[thick,uofgpumpkin] (k\brk) .. controls (k\brk.4 north west) and (k\brl.4 north east) .. (k\brl.center);
-
-\draw[thick,uofgheather] (k\brk.center) .. controls (k\brk.16 south west) and (k\brl.16 south east) .. (k\brl);
-}
-\end{tikzpicture}
-\end{frame}
-
 % \begin{frame}{Two-Colouring a Triangle}
 % 
 %     \begin{columns}
