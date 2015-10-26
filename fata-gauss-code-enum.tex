@@ -275,6 +275,52 @@
         \end{column}
     \end{columns}
 \end{frame}
+
+\begin{frame}{Knot enumeration by Gauss codes}
+	\begin{itemize}
+		\item There are three sensible questions to ask:
+		\begin{itemize}
+			\item Do all knots give rise to a Gauss code? \only<2->{Yes.}\only<3->{ Trivially.}
+			\item Can two Gauss codes correspond to the same knot? \only<4->{Yes.}
+			\item Do all Gauss codes represent a knot? \only<5->{No!}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{A candidate for a canonical Gauss code}
+	\begin{columns}
+        \begin{column}{0.65\textwidth}
+            \begin{itemize}[label={}]
+	            \item<1-> ${-1}$, $4$, ${-3}$, $1$ ${-2}$, $3$, ${-4}$, $2$
+	            \item<2-> ${2}$, ${-4}$, $3$, ${-2}$, $1$, ${-3}$, $4$, ${-1}$
+	        \end{itemize}
+        \end{column}
+        \begin{column}{0.25\textwidth}
+            \begin{tikzpicture}[scale=0.7, every path/.style={uofgburgundy,ultra thick}, every node/.style={transform shape, knot crossing, inner sep=1.5pt}]
+                \node[rotate=45] (tl) at (-1,1) {};
+                \only<1-> \node[above left=0.2 of tl, color=uofgpillarbox]{1};
+                \node[rotate=-45] (tr) at (1,1) {};
+                \only<1-> \node[above right=0.2 of tr, color=uofgpillarbox]{2};
+                \node (m) at (0,-1) {};
+                \only<1-> \node[above=0.2 of m, color=uofgpillarbox]{3};
+                \node (b) at (0,-2) {};
+                \only<1-> \node[below=0.2 of b, color=uofgpillarbox]{4};
+                \only<1-> \node (p) at (0,1) {};
+                \only<1> \node[above=0.1 of p, color=uofgpillarbox]{left};
+                \only<2> \node[above=0.1 of p, color=uofgpillarbox]{right};
+                \draw (b) .. controls (b.4 north west) and (m.4 south west) .. (m.center);
+                \draw (b.center) .. controls (b.4 north east) and (m.4 south east) .. (m);
+                \draw (m) .. controls (m.8 north west) and (tl.3 south west) .. (tl.center);
+                \draw (m.center) .. controls (m.8 north east) and (tr.3 south east) .. (tr);
+                \draw (tl.center) .. controls (tl.16 north east) and (tr.16 north west) .. (tr);
+                \draw (b) .. controls (b.16 south east) and (tr.16 north east) .. (tr.center);
+                \draw (b.center) .. controls (b.16 south west) and (tl.16 north west) .. (tl);
+                \draw (tl) -- (tr.center);
+                \only<1-> \fill (p) circle [radius=5pt];
+            \end{tikzpicture}
+        \end{column}
+    \end{columns}
+\end{frame}
 % \begin{frame}{Two-Colouring a Triangle}
 % 
 %     \begin{columns}
