@@ -288,27 +288,35 @@
 \end{frame}
 
 \begin{frame}{A candidate for a canonical Gauss code}
+	\only<1-6>{
 	\begin{columns}
         \begin{column}{0.65\textwidth}
             \begin{itemize}[label={}]
-	            \item<1-> ${-1}$, $4$, ${-3}$, $1$ ${-2}$, $3$, ${-4}$, $2$
+	            \item[]<1-> ${-1}$, $4$, ${-3}$, $1$ ${-2}$, $3$, ${-4}$, $2$
 	            \item<2-> ${2}$, ${-4}$, $3$, ${-2}$, $1$, ${-3}$, $4$, ${-1}$
 	            \item<3-> ${1}$, ${-4}$, $3$, ${-1}$, $2$, ${-3}$, $4$, ${-2}$
-	            \item<4-> I wonder what this should be 
+	            \item<4-> ${-1}$, $3$, ${-4}$, $1$ ${-2}$, $4$, ${-3}$, $2$
+	            \item<5-> Our candidate is a code with the lexicographically minimum shadow (where a shadow corresponds to an unsigned code).  For this knot the shadow is:
+	            \item<5-> $1$, $2$, $3$, $1$, $4$, $3$, $2$, $4$.
+	            \item<6-> For which the diagram now shows the labelling giving rise to the signed code:
+	            \item<6-> $-1$, $2$, $-3$, $1$, $-4$, $3$, $-2$, $4$.
 	        \end{itemize}
         \end{column}
         \begin{column}{0.25\textwidth}
             \begin{tikzpicture}[scale=0.7, every path/.style={uofgburgundy,ultra thick}, every node/.style={transform shape, knot crossing, inner sep=1.5pt}]
                 \node[rotate=45] (tl) at (-1,1) {};
                 \only<1-2> \node[above left=0.2 of tl, color=uofgpillarbox]{1};
-                \only<3-> \node[above left=0.2 of tl, color=uofgpillarbox]{2};
+                \only<3-5> \node[above left=0.2 of tl, color=uofgpillarbox]{2};
+                \only<6-> \node[above left=0.2 of tl, color=uofgpillarbox]{4};
                 \node[rotate=-45] (tr) at (1,1) {};
                 \only<1-2> \node[above right=0.2 of tr, color=uofgpillarbox]{2};
                 \only<3-> \node[above right=0.2 of tr, color=uofgpillarbox]{1};
         		\node (m) at (0,-1) {};
-                \only<1-> \node[above=0.2 of m, color=uofgpillarbox]{3};
+                \only<1-5> \node[above=0.2 of m, color=uofgpillarbox]{3};
+                \only<6-> \node[above left=0.2 of tl, color=uofgpillarbox]{2};
                 \node (b) at (0,-2) {};
-                \only<1-> \node[below=0.2 of b, color=uofgpillarbox]{4};
+                \only<1-5> \node[below=0.2 of b, color=uofgpillarbox]{4};
+                \only<6-> \node[above left=0.2 of tl, color=uofgpillarbox]{2};
                 \only<1-3> \node (p) at (0,1) {};
                 \only<4-> \node (p) at (0,2.2) {};
                 \only<1> \node[above=0.1 of p, color=uofgpillarbox]{left};
@@ -325,7 +333,25 @@
             \end{tikzpicture}
         \end{column}
     \end{columns}
+    }
+    \only<7->{
+    	\begin{itemize}
+    		\item Is this new? \only<8>{Kinda.} 
+    		\item<9-> Topologists don't seem to care about labelling a knot in a canonical manner when determining a knot's Gauss code.
+    		\item<9-> But such a lexicographically minium representation of a the shadow code is necissary in the input of an algorithm which follows.
+    	\end{itemize}
+    }
+
+    \only<10->{
+        \lstinputlisting{livToSeven.txt}
+    }
 \end{frame}
+
+\begin{frame}{Symmetries involved in Gauss code enumeration}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+}
 % \begin{frame}{Two-Colouring a Triangle}
 % 
 %     \begin{columns}
