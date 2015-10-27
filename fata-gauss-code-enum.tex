@@ -200,6 +200,31 @@
 \end{center}
 \end{frame}
 
+\begin{frame}{Prime knots}
+	\begin{itemize}
+		\item \emph{Prime knots} are knots which cannot be decomposed.  For nontrivial knots this means that they cannot be written as the connect sum of two non-trivial knots.
+		\item[] \includegraphics<2->[width=.45\textwidth]{connectSum.jpg}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Equivelent knots and reidemeister Moves}
+	\only<1>{
+	\begin{itemize}
+		\item When enumerating prime knots it is convention to give each prime knot by a knot diagram which has as few as possible crossings.
+		\item Two knots K and J are equivalent if K can be transformed into J by a series of elementary deformations.
+		\item Showing that two knots are equivalent by elementary deformations is not practical.
+	\end{itemize}
+	}
+	\only<2>{
+	\begin{itemize}
+		\item In the 1926 Reidermister proved that two knot diagrams $k_0$ and $k_1$ of the same knot K can be related by a sequence of the following three moves (called Reidermeister moves):\footnote{Alexander and Briggs developed these moves independently in 1927}
+	\end{itemize}
+	\item[] \includegraphics<3->[width=.30\textwidth]{R_1.jpg}
+	\item[] \includegraphics<4->[width=.30\textwidth]{R_2.jpg}
+	\item[] \includegraphics<5->[width=.30\textwidth]{R_3.jpg}
+	}
+\end{frame}
+
 \begin{frame}{Representations of knots}
     \only<1>{
     \begin{itemize}
@@ -354,6 +379,7 @@
 \end{frame}
 
 \begin{frame}{Symmetries involved in Gauss code enumeration}
+	\only<1-2>{
 	\begin{columns}
         \begin{column}{0.65\textwidth}
 			\begin{itemize}
@@ -377,6 +403,35 @@
 				\draw[ultra thick,red] (k\brk.center) .. controls (k\brk.16 south west) and (k\brl.16 south east) .. (k\brl);
 				}
 			\end{tikzpicture}
+		}
+		\end{column}
+	\end{columns}
+	}
+	\only<3->{
+		\begin{itemize}
+			\item The group of the symmetries of the problem is $S_{2n} \times Z_{2n} \times Z_2$ (over some quotient).
+			\item Symmetry breaking on each of these groups is easy, but this is not the case for their product.
+		\end{itemize}
+	}
+\end{frame}
+
+\begin{frame}{Virtual knots}
+	\begin{columns}
+		\begin{column}{0.65\textwidth}
+		\only<2-3>{
+			\begin{itemize}
+				\item The field of virtual knot theory arose from the question ``do all Gauss codes represent knots?''
+				\item Louis Kauffman lead the research into this new field and published his introduction to the subject in 1998.
+				\item This introduction includes an algorithm for determining if a knot is classical or virtual.
+				\item It isn't hard to think of an example of a Gauss code which does not represent a classical knot.
+			\end{itemize}
+		}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+		\only<3>{
+			\begin{itemize}
+				\item[] \includegraphics<2->[width=.45\textwidth]{virtual_1-2.jpg}
+			\end{itemize}
 		}
 		\end{column}
 	\end{columns}
