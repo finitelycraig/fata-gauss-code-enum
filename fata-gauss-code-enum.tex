@@ -16,7 +16,7 @@
 \usepackage{centernot}
 \usepackage{mathtools}
 \usepackage{listings}
-
+\usepackage{framed}
 \usetikzlibrary{shapes, arrows, shadows, calc, positioning, fit}
 \usetikzlibrary{decorations.pathreplacing, decorations.pathmorphing, shapes.misc}
 \usetikzlibrary{tikzmark}
@@ -66,7 +66,9 @@
 \newcommand{\undertwo}{\mathit{under2}}
 \newcommand{\AdjSetKnot}{\mathrm{AdjSetKnot}}
 \newcommand{\notAllSame}{\mathit{notAllSame}}
-\newcommand{\crossing}{\mathit{crossing}}definecolor{uofglavendar}{rgb}{0.356863, 0.301961, 0.580392}
+\newcommand{\crossing}{\mathit{crossing}}
+
+\definecolor{uofglavendar}{rgb}{0.356863, 0.301961, 0.580392}
 
 %\tikzset{vertex/.style={draw, circle, inner sep=0pt, minimum size=0.5cm, font=\small\bfseries}}
 %\tikzset{notvertex/.style={vertex, color=white, text=black}}
@@ -100,7 +102,7 @@
 
 \setbeamertemplate{title page}
 {
-    \begin{tikzpiture}[remember picture, overlay]
+    \begin{tikzpicture}[remember picture, overlay]
         \node at (current page.north west) {
             \begin{tikzpicture}[remember picture, overlay]
                 \fill [fill=uofguniversityblue, anchor=north west] (0, 0) rectangle (\paperwidth, -2.6cm);
@@ -615,7 +617,6 @@ each letter i in the code, reverse the order of all the letters between each ins
 \begin{frame}{A naive constraint model}
 \begin{figure}[H]
 \scriptsize{
-\setlength{\mathindent}{1em}
 \setlength{\abovedisplayskip}{0pt}
 \setlength{\belowdisplayskip}{0pt}
 \setlength{\abovecaptionskip}{0pt}
@@ -640,7 +641,6 @@ each letter i in the code, reverse the order of all the letters between each ins
 \begin{frame}{A model using 0/1 variables}
 \begin{figure}[H]
 \scriptsize{
-\setlength{\mathindent}{1em}
 \setlength{\abovedisplayskip}{0pt}
 \setlength{\belowdisplayskip}{0pt}
 \setlength{\abovecaptionskip}{0pt}
@@ -662,7 +662,6 @@ each letter i in the code, reverse the order of all the letters between each ins
     &\hspace{20pt} \evenLetterTranspose[i][j] = \evenLetter[j][i]  \\
     &\hspace{20pt} \oddLetter[i][j] = \letter[i][j] \text{ for $i$ odd }  \\
     &\hspace{20pt} \oddLetterTranspose[i][j] = \oddLetter[j][i]  \\
-    \\
     \vspace{1pt} \\
     }
     \only<3>{
@@ -704,8 +703,7 @@ each letter i in the code, reverse the order of all the letters between each ins
 \end{frame}
 
 \begin{frame}
-\begin{center}
-\end{center}
+
 \end{frame}
 % \begin{frame}{Two-Colouring a Triangle}
 % 
