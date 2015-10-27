@@ -291,16 +291,22 @@
 	\only<1-6>{
 	\begin{columns}
         \begin{column}{0.65\textwidth}
-            \begin{itemize}[label={}]
+        	\only<1-4>{
+            \begin{itemize}
 	            \item[]<1-4> ${-1}$, $4$, ${-3}$, $1$ ${-2}$, $3$, ${-4}$, $2$
 	            \item[]<2-4> ${2}$, ${-4}$, $3$, ${-2}$, $1$, ${-3}$, $4$, ${-1}$
 	            \item[]<3-4> ${1}$, ${-4}$, $3$, ${-1}$, $2$, ${-3}$, $4$, ${-2}$
 	            \item[]<4> ${-1}$, $3$, ${-4}$, $1$ ${-2}$, $4$, ${-3}$, $2$
+	        \end{itemize}
+	        }
+	        \only<5-6>{
+	        \begin{itemize}
 	            \item<5-> Our candidate is a code with the lexicographically minimum shadow (where a shadow corresponds to an unsigned code).  For this knot the shadow is:
 	            \item[]<5-> $1$, $2$, $3$, $1$, $4$, $3$, $2$, $4$.
 	            \item<6-> For which the diagram now shows the labelling giving rise to the signed code:
 	            \item[]<6-> $-1$, $2$, $-3$, $1$, $-4$, $3$, $-2$, $4$.
 	        \end{itemize}
+	        }
         \end{column}
         \begin{column}{0.25\textwidth}
             \begin{tikzpicture}[scale=0.7, every path/.style={uofgburgundy,ultra thick}, every node/.style={transform shape, knot crossing, inner sep=1.5pt}]
@@ -334,9 +340,9 @@
         \end{column}
     \end{columns}
     }
-    \only<7->{
+    \only<7-9>{
     	\begin{itemize}
-    		\item Is this new? \only<8>{Kinda.} 
+    		\item Is this new? \only<8->{Kinda.} 
     		\item<9> Topologists don't seem to care about labelling a knot in a canonical manner when determining a knot's Gauss code.
     		\item<9> But such a lexicographically minium representation of a the shadow code is necissary in the input of an algorithm which follows.
     	\end{itemize}
@@ -352,6 +358,7 @@
 		\item stuff
 	\end{itemize}
 \end{frame}
+
 % \begin{frame}{Two-Colouring a Triangle}
 % 
 %     \begin{columns}
