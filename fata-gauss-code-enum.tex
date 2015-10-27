@@ -100,7 +100,7 @@
 
 \setbeamertemplate{title page}
 {
-    \begin{tikzpicture}[remember picture, overlay]
+    \begin{tikzpiture}[remember picture, overlay]
         \node at (current page.north west) {
             \begin{tikzpicture}[remember picture, overlay]
                 \fill [fill=uofguniversityblue, anchor=north west] (0, 0) rectangle (\paperwidth, -2.6cm);
@@ -241,7 +241,7 @@
 		\item Showing that two knots are equivalent by elementary deformations is not practical.
 	\end{itemize}
 	}
-	\only<2-4>{
+	\only<2-3>{
 	\begin{itemize}
 		\item In the 1926 Reidermister proved that two knot diagrams $k_0$ and $k_1$ of the same knot K can be related by a sequence of the following three moves (called Reidermeister moves):\footnote{Alexander and Briggs developed these moves independently in 1927}
 	\end{itemize}
@@ -413,13 +413,12 @@
 \end{frame}
 
 \begin{frame}{Symmetries involved in Gauss code enumeration}
-	\only<1-2>{
+	\only<1>{
 	\begin{columns}
         \begin{column}{0.65\textwidth}
 			\begin{itemize}
 				\item The choices involved in each stage of obtaining a Gauss code from a given knot lead to rich symmetries in the problem of enumerating knots by Gauss codes.
 				\item As we have seen many Gauss codes represent the same knot.
-				\item As an example case: the smallest prime knot, the \emph{trefoil}, is represented by WORK THIS OUT!
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.25\textwidth}
@@ -593,7 +592,7 @@ each letter i in the code, reverse the order of all the letters between each ins
 \begin{frame}{Implementation}
     \only<1>{
         \begin{itemize}
-            \item The aim of the project was to generate all knot diargrams of a given crossings number, up to some notion of equivalence.
+            \item The aim of the project was to generate all knot diagrams of a given crossings number, up to some notion of equivalence.
             \item The project made use of both Constraint Programming and dedicated algorithms to efficently filter codes.
         \end{itemize}
     }
@@ -638,7 +637,7 @@ each letter i in the code, reverse the order of all the letters between each ins
 \end{figure}
 \end{frame}
 
-\begin{frame}{A model using 0/1 variable}
+\begin{frame}{A model using 0/1 variables}
 \begin{figure}[H]
 \scriptsize{
 \setlength{\mathindent}{1em}
@@ -681,7 +680,7 @@ each letter i in the code, reverse the order of all the letters between each ins
 \end{figure}
 \end{frame}
 
-\begin{frame}{The trefoil represented my the 0/1 model}
+\begin{frame}{The trefoil represented by the 0/1 model}
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{ l c r }
@@ -706,7 +705,6 @@ each letter i in the code, reverse the order of all the letters between each ins
 
 \begin{frame}
 \begin{center}
-    \huge{Questions?}
 \end{center}
 \end{frame}
 % \begin{frame}{Two-Colouring a Triangle}
